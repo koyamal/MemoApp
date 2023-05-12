@@ -1,15 +1,21 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { string } from 'prop-types';
 
-export default function Hello() {
+export default function Hello(props) {
+  const { children } = props;
   return (
     <View>
       <Text style={styles.text}>
-        Hello
+        {`Hello ${children}`}
       </Text>
     </View>
   );
 }
+
+Hello.propTypes = {
+  children: string.isRequired,
+};
 
 const styles = StyleSheet.create({
   text: {
