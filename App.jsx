@@ -20,19 +20,19 @@ export default function App() {
             <Text>X</Text>
           </View>
         </View>
-        <View>
+        <View style={styles.memoListItem}>
           <View>
-            <Text>買い物リスト2</Text>
-            <Text>2023年05月12日 10:00</Text>
+            <Text style={styles.memoListItemTitle}>買い物リスト2</Text>
+            <Text style={styles.memoListItemDate}>2023年05月12日 10:00</Text>
           </View>
           <View>
             <Text>X</Text>
           </View>
         </View>
-        <View>
+        <View style={styles.memoListItem}>
           <View>
-            <Text>買い物リスト3</Text>
-            <Text>2023年05月12日 10:00</Text>
+            <Text style={styles.memoListItemTitle}>買い物リスト3</Text>
+            <Text style={styles.memoListItemDate}>2023年05月12日 10:00</Text>
           </View>
           <View>
             <Text>X</Text>
@@ -80,6 +80,8 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     paddingHorizontal: 19,
     alignItems: 'center',
+    borderBottomWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 0.15)',
   },
   memoListItemTitle: {
     fontSize: 16,
