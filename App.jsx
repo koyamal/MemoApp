@@ -11,10 +11,10 @@ export default function App() {
         </View>
       </View>
       <View>
-        <View>
+        <View style={styles.memoListItem}>
           <View>
-            <Text>買い物リスト1</Text>
-            <Text>2023年05月12日 10:00</Text>
+            <Text style={styles.memoListItemTitle}>買い物リスト1</Text>
+            <Text style={styles.memoListItemDate}>2023年05月12日 10:00</Text>
           </View>
           <View>
             <Text>X</Text>
@@ -72,5 +72,22 @@ const styles = StyleSheet.create({
     lineHeight: 32,
     color: '#ffffff',
     fontWeight: 'bold',
+  },
+  memoListItem: {
+    backgroundColor: '#ffffff',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 16,
+    paddingHorizontal: 19,
+    alignItems: 'center',
+  },
+  memoListItemTitle: {
+    fontSize: 16,
+    lineHeight: 32,
+  },
+  memoListItemDate: {
+    fontSize: 12,
+    lineHeight: 16,
+    color: '#848484',
   },
 });
