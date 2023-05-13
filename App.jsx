@@ -39,8 +39,8 @@ export default function App() {
           </View>
         </View>
       </View>
-      <View>
-        <Text>+</Text>
+      <View style={styles.circleButton}>
+        <Text style={styles.circleButtonLabel}>+</Text>
       </View>
     </View>
   );
@@ -91,5 +91,18 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 16,
     color: '#848484',
+  },
+  circleButton: {
+    backgroundColor: '#467FD3',
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  circleButtonLabel: {
+    color: '#ffffff',
+    fontSize: 40,
+    lineHeight: 40,
   },
 });
