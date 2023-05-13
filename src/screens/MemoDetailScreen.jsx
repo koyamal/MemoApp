@@ -1,5 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+} from 'react-native';
 
 import AppBar from '../components/AppBar';
 import CircleButton from '../components/CircleButton';
@@ -14,13 +19,13 @@ export default function MemoDetailScreen() {
         <Text>2023年05月12日 10:00</Text>
       </View>
 
-      <View>
+      <ScrollView>
         <Text>
           買い物リスト1
           testtesttesttesttesttesttest
           testtesttest
         </Text>
-      </View>
+      </ScrollView>
 
       <CircleButton>+</CircleButton>
     </View>
