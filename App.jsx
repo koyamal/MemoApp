@@ -10,7 +10,7 @@ export default function App() {
     <View style={styles.container}>
       <AppBar />
       <MemoList />
-      <CircleButton />
+      <CircleButton>+</CircleButton>
     </View>
   );
 }
