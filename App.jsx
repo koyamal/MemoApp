@@ -99,6 +99,9 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'absolute',
+    right: 40,
+    bottom: 40,
   },
   circleButtonLabel: {
     color: '#ffffff',
