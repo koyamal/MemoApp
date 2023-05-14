@@ -16,9 +16,9 @@ export default function LogInScreen() {
         <View style={styles.buttonContainer}>
           <Text style={styles.buttonLabel}>Submit</Text>
         </View>
-        <View>
-          <Text>Not registered?</Text>
-          <Text>Sign up here!</Text>
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>Not registered?</Text>
+          <Text style={styles.footerLink}>Sign up here!</Text>
         </View>
       </View>
     </View>
@@ -61,5 +61,18 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 32,
     color: '#ffffff',
+  },
+  footer: {
+    flexDirection: 'row',
+  },
+  footerText: {
+    fontSize: 14,
+    lineHeight: 24,
+    marginRight: 8,
+  },
+  footerLink: {
+    fontSize: 14,
+    lineHeight: 24,
+    color: '#467FD3',
   },
 });
