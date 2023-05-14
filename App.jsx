@@ -23,11 +23,5 @@ export default function App() {
         <Stack.Screen name="SignUp" component={SignUpScreen} />
       </Stack.Navigator>
     </NavigationContainer>
-    // <MemoListScreen />
-    // <MemoDetailScreen />
-    // <MemoEditScreen />
-    // <MemoCreateScreen />
-    // <LogInScreen />
-    // <SignUpScreen />
   );
 }
