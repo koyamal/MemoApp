@@ -13,8 +13,8 @@ export default function LogInScreen() {
         <Text style={styles.title}>Log In</Text>
         <TextInput style={styles.input} value="Email Address" />
         <TextInput style={styles.input} value="Password" />
-        <View>
-          <Text>Submit</Text>
+        <View style={styles.buttonContainer}>
+          <Text style={styles.buttonLabel}>Submit</Text>
         </View>
         <View>
           <Text>Not registered?</Text>
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     lineHeight: 32,
+    marginBottom: 24,
   },
   input: {
     fontSize: 16,
@@ -45,5 +46,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     borderColor: '#dddddd',
     borderWidth: 1,
+    paddingHorizontal: 8,
+    marginBottom: 16,
+  },
+  buttonContainer: {
+    backgroundColor: '#467FD3',
+    borderRadius: 4,
+    alignSelf: 'flex-start',
+    marginBottom: 24,
+  },
+  buttonLabel: {
+    fontSize: 16,
+    lineHeight: 32,
+    paddingVertical: 8,
+    paddingHorizontal: 32,
+    color: '#ffffff',
   },
 });
