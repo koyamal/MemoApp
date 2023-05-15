@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 
 import MemoListScreen from './src/screens/MemoListScreen';
 import MemoDetailScreen from './src/screens/MemoDetailScreen';
@@ -26,6 +26,7 @@ export default function App() {
           headerTitle: 'Memo App',
           headerTintColor: '#ffffff',
           headerBackTitle: 'Back',
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}
       >
         <Stack.Screen name="MemoList" component={MemoListScreen} />
