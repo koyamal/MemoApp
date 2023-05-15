@@ -24,6 +24,8 @@ export default function App() {
             color: '#ffffff',
           },
           headerTitle: 'Memo App',
+          headerTintColor: '#ffffff',
+          headerBackTitle: 'Back',
         }}
       >
         <Stack.Screen name="MemoList" component={MemoListScreen} />
