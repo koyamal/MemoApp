@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, Text, TextInput, StyleSheet, TouchableOpacity,
+  View, Text, TextInput, StyleSheet, TouchableOpacity, Alert,
 } from 'react-native';
 import firebase from 'firebase';
 
@@ -16,11 +16,15 @@ export default function SignUpScreen(props) {
       .then((userCredential) => {
         const { user } = userCredential;
         console.log(user.uid);
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'MemoList' }],
+        });
+      })
+      .catch((error) => {
+        Alert.alert(error.code);
+        console.log(error.code, error.message);
       });
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'MemoList' }],
-    });
   }
   return (
     <View style={styles.container}>
