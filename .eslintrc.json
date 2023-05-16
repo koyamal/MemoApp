@@ -23,6 +23,7 @@
         ],
         "no-use-before-define": 0,
         "react/prop-types": ["error", { "ignore": ["navigation"]}],
-        "no-console": 0
+        "no-console": 0,
+        "react/no-unstable-nested-components": ["error", {"allowAsProps": true}]
     }
 }
