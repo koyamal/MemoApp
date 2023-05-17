@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Alert } from 'react-native';
 import firebase from 'firebase';
 
@@ -8,6 +8,8 @@ import LogOutButton from '../components/LogOutButton';
 
 export default function MemoListScreen(props) {
   const { navigation } = props;
+  const [memos, setMemos] = useState([]);
+
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => <LogOutButton />,
@@ -22,9 +24,17 @@ export default function MemoListScreen(props) {
       const ref = db.collection(`users/${currentUser.uid}/memos`).orderBy('updatedAt', 'desc');
       unsubscribe = ref.onSnapshot(
         (snapshot) => {
+          const userMemos = [];
           snapshot.forEach((doc) => {
-            console.log(doc.id, doc.data());
+            const data = doc.data();
+            console.log(doc.id, data);
+            userMemos.push({
+              id: doc.id,
+              bodyText: data.bodyText,
+              updatedAt: data.updatedAt,
+            });
           });
+          setMemos(userMemos);
         },
         (error) => {
           console.log(error);
