@@ -17,8 +17,8 @@ export default function MemoList(props) {
           onPress={() => { navigation.navigate('MemoDetail'); }}
         >
           <View>
-            <Text style={styles.memoListItemTitle}>買い物リスト1</Text>
-            <Text style={styles.memoListItemDate}>2023年05月12日 10:00</Text>
+            <Text style={styles.memoListItemTitle}>{memo.bodyText}</Text>
+            <Text style={styles.memoListItemDate}>{String(memo.updatedAt)}</Text>
           </View>
           <TouchableOpacity
             style={styles.memoDelete}
