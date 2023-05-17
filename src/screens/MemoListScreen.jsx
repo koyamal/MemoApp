@@ -23,7 +23,7 @@ export default function MemoListScreen(props) {
         console.log(doc.id, doc.data());
       });
     });
-  });
+  }, []);
   return (
     <View style={styles.container}>
       <MemoList />
