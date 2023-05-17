@@ -4,7 +4,9 @@ import {
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { shape, string, instanceOf } from 'prop-types';
+import {
+  shape, string, instanceOf, arrayOf,
+} from 'prop-types';
 
 export default function MemoList(props) {
   const { memos } = props;
@@ -38,11 +40,11 @@ export default function MemoList(props) {
 }
 
 MemoList.propTypes = {
-  memos: shape({
+  memos: arrayOf(shape({
     id: string,
     bodyText: string,
     updatedAt: instanceOf(Date),
-  }).isRequired,
+  })).isRequired,
 };
 
 const styles = StyleSheet.create({
