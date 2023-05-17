@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Alert } from 'react-native';
 import firebase from 'firebase';
 
 import MemoList from '../components/MemoList';
@@ -20,11 +20,17 @@ export default function MemoListScreen(props) {
     let unsubscribe = () => {};
     if (currentUser) {
       const ref = db.collection(`users/${currentUser.uid}/memos`).orderBy('updatedAt', 'desc');
-      unsubscribe = ref.onSnapshot((snapshot) => {
-        snapshot.forEach((doc) => {
-          console.log(doc.id, doc.data());
-        });
-      });
+      unsubscribe = ref.onSnapshot(
+        (snapshot) => {
+          snapshot.forEach((doc) => {
+            console.log(doc.id, doc.data());
+          });
+        },
+        (error) => {
+          console.log(error);
+          Alert.alert('Load Data failed.');
+        },
+      );
     }
     return unsubscribe;
   }, []);
