@@ -31,7 +31,7 @@ export default function MemoListScreen(props) {
             userMemos.push({
               id: doc.id,
               bodyText: data.bodyText,
-              updatedAt: data.updatedAt,
+              updatedAt: data.updatedAt.toDate(),
             });
           });
           setMemos(userMemos);
@@ -46,7 +46,7 @@ export default function MemoListScreen(props) {
   }, []);
   return (
     <View style={styles.container}>
-      <MemoList />
+      <MemoList memos={memos} />
       <CircleButton
         name="plus"
         onPress={
