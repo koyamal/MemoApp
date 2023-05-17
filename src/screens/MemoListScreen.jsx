@@ -18,11 +18,12 @@ export default function MemoListScreen(props) {
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();
     const ref = db.collection(`users/${currentUser.uid}/memos`);
-    ref.onSnapshot((snapshot) => {
+    const unsubscribe = ref.onSnapshot((snapshot) => {
       snapshot.forEach((doc) => {
         console.log(doc.id, doc.data());
       });
     });
+    return unsubscribe;
   }, []);
   return (
     <View style={styles.container}>
