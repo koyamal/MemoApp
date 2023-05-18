@@ -33,9 +33,7 @@ export default function SignUpScreen(props) {
         <TextInput
           style={styles.input}
           value={email}
-          onChangeText={(text) => {
-            setEmail(text);
-          }}
+          onChangeText={(text) => { setEmail(text); }}
           autoCapitalize="none"
           keyboardType="email-address"
           placeholder="Email Address"
