@@ -36,15 +36,13 @@ export default function MemoDetailScreen(props) {
   return (
     <View style={styles.container}>
       <View style={styles.memoHeader}>
-        <Text style={styles.memoTitle}>買い物リスト1</Text>
-        <Text style={styles.memoDate}>2023年05月12日 10:00</Text>
+        <Text style={styles.memoTitle}>{memo && memo.bodyText}</Text>
+        <Text style={styles.memoDate}>{memo && String(memo.updatedAt)}</Text>
       </View>
 
       <ScrollView style={styles.memoBody}>
         <Text style={styles.memoText}>
-          買い物リスト1
-          testtesttesttesttesttesttest
-          testtesttest
+          {memo && memo.bodyText}
         </Text>
       </ScrollView>
 
