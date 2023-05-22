@@ -24,6 +24,7 @@
         "no-use-before-define": 0,
         "react/prop-types": ["error", { "ignore": ["navigation"]}],
         "no-console": 0,
-        "react/no-unstable-nested-components": ["error", {"allowAsProps": true}]
+        "react/no-unstable-nested-components": ["error", {"allowAsProps": true}],
+        "import/prefer-default-export": 0,
     }
 }
