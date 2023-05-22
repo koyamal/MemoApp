@@ -13,8 +13,6 @@ export default function MemoList(props) {
   const navigation = useNavigation();
 
   function renderItem(item) {
-    console.log('renderItem');
-    console.log(item.id);
     return (
       <TouchableOpacity
         style={styles.memoListItem}
