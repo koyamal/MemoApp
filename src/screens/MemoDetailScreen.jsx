@@ -36,7 +36,7 @@ export default function MemoDetailScreen(props) {
   return (
     <View style={styles.container}>
       <View style={styles.memoHeader}>
-        <Text style={styles.memoTitle}>{memo && memo.bodyText}</Text>
+        <Text style={styles.memoTitle} numberOfLines={1}>{memo && memo.bodyText}</Text>
         <Text style={styles.memoDate}>{memo && String(memo.updatedAt)}</Text>
       </View>
 
