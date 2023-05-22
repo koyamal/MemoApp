@@ -17,7 +17,6 @@ export default function MemoList(props) {
     console.log(item.id);
     return (
       <TouchableOpacity
-        key={item.id}
         style={styles.memoListItem}
         onPress={() => { navigation.navigate('MemoDetail'); }}
       >
