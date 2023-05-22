@@ -22,7 +22,7 @@ export default function MemoEditScreen(props) {
       ref.set({
         bodyText: body,
         updatedAt: new Date(),
-      })
+      }, { merge: true })
         .then(() => {
           navigation.goBack();
         })
