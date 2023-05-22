@@ -16,29 +16,26 @@ export default function MemoList(props) {
     console.log('renderItem');
     console.log(item.id);
     return (
-      <View>
-        <Text>Hello</Text>
-      </View>
-      // <TouchableOpacity
-      //   key={item.id}
-      //   style={styles.memoListItem}
-      //   onPress={() => { navigation.navigate('MemoDetail'); }}
-      // >
-      //   <View>
-      //     <Text style={styles.memoListItemTitle}>{item.bodyText}</Text>
-      //     <Text style={styles.memoListItemDate}>{String(item.updatedAt)}</Text>
-      //   </View>
-      //   <TouchableOpacity
-      //     style={styles.memoDelete}
-      //     onPress={() => { Alert.alert('Are you sure?'); }}
-      //   >
-      //     <Feather
-      //       name="x"
-      //       size={16}
-      //       color="#B0B0B0"
-      //     />
-      //   </TouchableOpacity>
-      // </TouchableOpacity>
+      <TouchableOpacity
+        key={item.id}
+        style={styles.memoListItem}
+        onPress={() => { navigation.navigate('MemoDetail'); }}
+      >
+        <View>
+          <Text style={styles.memoListItemTitle}>{item.bodyText}</Text>
+          <Text style={styles.memoListItemDate}>{String(item.updatedAt)}</Text>
+        </View>
+        <TouchableOpacity
+          style={styles.memoDelete}
+          onPress={() => { Alert.alert('Are you sure?'); }}
+        >
+          <Feather
+            name="x"
+            size={16}
+            color="#B0B0B0"
+          />
+        </TouchableOpacity>
+      </TouchableOpacity>
     );
   }
   return (
@@ -46,7 +43,6 @@ export default function MemoList(props) {
       <FlatList
         data={memos}
         renderItem={({ item }) => renderItem(item)}
-        // renderItem={({ item }) => { renderItem(item); }}
         keyExtractor={(item) => item.id}
       />
     </View>
