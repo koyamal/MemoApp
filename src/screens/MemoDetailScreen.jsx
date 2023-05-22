@@ -51,7 +51,7 @@ export default function MemoDetailScreen(props) {
         name="edit-2"
         style={{ top: 60, bottom: 'auto' }}
         onPress={() => {
-          navigation.navigate('MemoEdit');
+          navigation.navigate('MemoEdit', { id: memo.id, bodyText: memo.bodyText });
         }}
       />
     </View>
