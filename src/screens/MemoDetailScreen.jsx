@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -13,14 +13,25 @@ import CircleButton from '../components/CircleButton';
 export default function MemoDetailScreen(props) {
   const { navigation, route } = props;
   const { id } = route.params;
+  const [memo, setMemo] = useState(null);
 
   useEffect(() => {
     const { currentUser } = firebase.auth();
-    const db = firebase.firestore();
-    const ref = db.collection(`users/${currentUser.uid}/memos`).doc(id);
-    ref.onSnapshot((doc) => {
-      console.log(doc.id, doc.data());
-    });
+    let unsubcribe = () => {};
+    if (currentUser) {
+      const db = firebase.firestore();
+      const ref = db.collection(`users/${currentUser.uid}/memos`).doc(id);
+      unsubcribe = ref.onSnapshot((doc) => {
+        console.log(doc.id, doc.data());
+        const data = doc.data();
+        setMemo({
+          id: doc.id,
+          bodyText: data.bodyText,
+          updatedAt: data.updatedAt.toDate(),
+        });
+      });
+    }
+    return unsubcribe;
   }, []);
   return (
     <View style={styles.container}>
