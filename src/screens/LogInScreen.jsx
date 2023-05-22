@@ -28,6 +28,7 @@ export default function LogInScreen(props) {
   }, []);
 
   function handlePress() {
+    setIsLoading(true);
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const { user } = userCredential;
@@ -40,6 +41,9 @@ export default function LogInScreen(props) {
       .catch((error) => {
         console.log(error.code, error.message);
         Alert.alert(error.code);
+      })
+      .then(() => {
+        setIsLoading(false);
       });
   }
   return (
