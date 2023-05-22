@@ -38,7 +38,7 @@ export default function MemoList(props) {
     );
   }
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={memos}
         renderItem={({ item }) => renderItem(item)}
@@ -57,6 +57,9 @@ MemoList.propTypes = {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   memoListItem: {
     backgroundColor: '#ffffff',
     flexDirection: 'row',
