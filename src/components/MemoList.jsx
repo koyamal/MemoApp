@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, Alert, FlatList,
 } from 'react-native';
@@ -14,6 +14,7 @@ import { dateToString } from '../utils';
 export default function MemoList(props) {
   const { memos } = props;
   const navigation = useNavigation();
+  const [isStar, setIsStar] = useState(false);
 
   function deleteMemo(id) {
     const { currentUser } = firebase.auth();
@@ -38,6 +39,9 @@ export default function MemoList(props) {
       ]);
     }
   }
+  function toggleStar() {
+    setIsStar(!isStar);
+  }
   function renderItem(item) {
     return (
       <TouchableOpacity
@@ -47,14 +51,14 @@ export default function MemoList(props) {
         <View style={styles.memoLeft}>
           <View style={styles.memoStar}>
             {
-              false
+              isStar
                 ? (
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => { toggleStar(); }}>
                     <Entypo name="star" size={24} color="#FFCC00" />
                   </TouchableOpacity>
                 )
                 : (
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => { toggleStar(); }}>
                     <Entypo name="star-outlined" size={24} color="#B0B0B0" />
                   </TouchableOpacity>
                 )
