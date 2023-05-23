@@ -45,17 +45,17 @@ export default function MemoList(props) {
         onPress={() => { navigation.navigate('MemoDetail', { id: item.id }); }}
       >
         <View style={styles.memoLeft}>
-          <View>
+          <View style={styles.memoStar}>
             {
-              true
+              false
                 ? (
                   <TouchableOpacity>
-                    <Entypo name="star" size={24} color="black" />
+                    <Entypo name="star" size={24} color="#FFCC00" />
                   </TouchableOpacity>
                 )
                 : (
                   <TouchableOpacity>
-                    <Entypo name="star-outlined" size={24} color="black" />
+                    <Entypo name="star-outlined" size={24} color="#B0B0B0" />
                   </TouchableOpacity>
                 )
             }
@@ -126,5 +126,8 @@ const styles = StyleSheet.create({
   },
   memoDelete: {
     paddingRight: 27,
+  },
+  memoStar: {
+    padding: 8,
   },
 });
