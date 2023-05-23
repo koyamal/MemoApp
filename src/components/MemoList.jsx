@@ -2,7 +2,7 @@ import React from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, Alert, FlatList,
 } from 'react-native';
-import { Feather, Entypo } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import {
   shape, string, instanceOf, arrayOf,
@@ -10,6 +10,7 @@ import {
 import firebase from 'firebase';
 
 import { dateToString, toggleStar } from '../utils';
+import Star from './Star';
 
 export default function MemoList(props) {
   const { memos } = props;
@@ -47,15 +48,7 @@ export default function MemoList(props) {
         <View style={styles.memoLeft}>
           <View style={styles.memoStar}>
             <TouchableOpacity onPress={() => { toggleStar(item); }}>
-              {
-                item.isStar
-                  ? (
-                    <Entypo name="star" size={24} color="#FFCC00" />
-                  )
-                  : (
-                    <Entypo name="star-outlined" size={24} color="#B0B0B0" />
-                  )
-                }
+              <Star isStar={item.isStar} name={['star', 'star-outlined']} size={24} color={['#FFCC00', '#B0B0B0']} />
             </TouchableOpacity>
           </View>
           <View>
