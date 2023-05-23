@@ -9,7 +9,7 @@ import {
 } from 'prop-types';
 import firebase from 'firebase';
 
-import { dateToString } from '../utils';
+import { dateToString, toggleStar } from '../utils';
 
 export default function MemoList(props) {
   const { memos } = props;
@@ -36,21 +36,6 @@ export default function MemoList(props) {
           },
         },
       ]);
-    }
-  }
-  function toggleStar(item) {
-    const { currentUser } = firebase.auth();
-    if (currentUser) {
-      const db = firebase.firestore();
-      const ref = db.collection(`users/${currentUser.uid}/memos`).doc(item.id);
-      ref.set({
-        isStar: !item.isStar,
-      }, { merge: true })
-        .then(() => {
-        })
-        .catch((error) => {
-          Alert.alert(error.code);
-        });
     }
   }
   function renderItem(item) {
