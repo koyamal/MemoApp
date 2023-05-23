@@ -61,19 +61,17 @@ export default function MemoList(props) {
       >
         <View style={styles.memoLeft}>
           <View style={styles.memoStar}>
-            {
-              item.isStar
-                ? (
-                  <TouchableOpacity onPress={() => { toggleStar(item); }}>
+            <TouchableOpacity onPress={() => { toggleStar(item); }}>
+              {
+                item.isStar
+                  ? (
                     <Entypo name="star" size={24} color="#FFCC00" />
-                  </TouchableOpacity>
-                )
-                : (
-                  <TouchableOpacity onPress={() => { toggleStar(item); }}>
+                  )
+                  : (
                     <Entypo name="star-outlined" size={24} color="#B0B0B0" />
-                  </TouchableOpacity>
-                )
-            }
+                  )
+                }
+            </TouchableOpacity>
           </View>
           <View>
             <Text style={styles.memoListItemTitle} numberOfLines={1}>{item.bodyText}</Text>
