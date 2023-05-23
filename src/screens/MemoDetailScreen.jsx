@@ -4,9 +4,11 @@ import {
   Text,
   ScrollView,
   StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
 import { shape, string } from 'prop-types';
 import firebase from 'firebase';
+import { Entypo } from '@expo/vector-icons';
 
 import CircleButton from '../components/CircleButton';
 import { dateToString } from '../utils';
@@ -29,6 +31,7 @@ export default function MemoDetailScreen(props) {
           id: doc.id,
           bodyText: data.bodyText,
           updatedAt: data.updatedAt.toDate(),
+          isStar: data.isStar,
         });
       });
     }
@@ -37,8 +40,15 @@ export default function MemoDetailScreen(props) {
   return (
     <View style={styles.container}>
       <View style={styles.memoHeader}>
-        <Text style={styles.memoTitle} numberOfLines={1}>{memo && memo.bodyText}</Text>
-        <Text style={styles.memoDate}>{memo && dateToString(memo.updatedAt)}</Text>
+        <View>
+          <TouchableOpacity style={styles.memoStar}>
+            <Entypo name="star" size={32} color="#FFCC00" />
+          </TouchableOpacity>
+        </View>
+        <View>
+          <Text style={styles.memoTitle} numberOfLines={1}>{memo && memo.bodyText}</Text>
+          <Text style={styles.memoDate}>{memo && dateToString(memo.updatedAt)}</Text>
+        </View>
       </View>
 
       <ScrollView style={styles.memoBody}>
@@ -72,11 +82,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   memoHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: '#467FD3',
     height: 96,
-    justifyContent: 'center',
     paddingVertical: 24,
-    paddingHorizontal: 19,
+  },
+  memoStar: {
+    padding: 8,
+    justifyContent: 'center',
   },
   memoTitle: {
     color: '#ffffff',
