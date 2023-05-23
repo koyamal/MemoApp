@@ -68,8 +68,45 @@ export default function MemoListScreen(props) {
     return unsubscribe;
   }, [onlyStar]);
 
+  const starStyle = {
+    position: 'absolute',
+    left: 40,
+    bottom: 40,
+    backgroundColor: '#467FD3',
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 8,
+  };
+
   if (memos.length === 0 && onlyStar) {
-    setOnlyStar(false);
+    return (
+      <View style={starEmptyStyles.container}>
+        <Loading isLoading={isLoading} />
+        <View style={starEmptyStyles.inner}>
+          <Text style={starEmptyStyles.title}>
+            お気に入りのメモは0件です
+          </Text>
+          <Text style={starEmptyStyles.title}>
+            お気に入りフィルタを解除してください
+          </Text>
+        </View>
+        <TouchableOpacity style={starStyles.button} onPress={() => { setOnlyStar(!onlyStar); }}>
+          <Star
+            isStar={onlyStar}
+            name={['star', 'star']}
+            size={40}
+            color={['#FFCC00', '#ffffff']}
+          />
+        </TouchableOpacity>
+      </View>
+    );
   }
 
   if (memos.length === 0 && !onlyStar) {
@@ -103,22 +140,7 @@ export default function MemoListScreen(props) {
           name={['star', 'star']}
           size={40}
           color={['#FFCC00', '#ffffff']}
-          style={{
-            position: 'absolute',
-            left: 40,
-            bottom: 40,
-            backgroundColor: '#467FD3',
-            width: 64,
-            height: 64,
-            borderRadius: 32,
-            justifyContent: 'center',
-            alignItems: 'center',
-            shadowColor: '#000000',
-            shadowOffset: { width: 0, height: 8 },
-            shadowOpacity: 0.25,
-            shadowRadius: 8,
-            elevation: 8,
-          }}
+          style={starStyle}
         />
       </TouchableOpacity>
       {/* <CircleButton
@@ -154,6 +176,45 @@ const emptyStyles = StyleSheet.create({
   title: {
     fontSize: 18,
     marginBottom: 24,
+  },
+  button: {
+    alignSelf: 'center',
+  },
+});
+
+const starStyles = StyleSheet.create({
+  button: {
+    position: 'absolute',
+    left: 40,
+    bottom: 40,
+    backgroundColor: '#467FD3',
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 8,
+  },
+});
+
+const starEmptyStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  inner: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'yello',
+  },
+  title: {
+    fontSize: 18,
+    marginBottom: 12,
   },
   button: {
     alignSelf: 'center',
