@@ -2,7 +2,7 @@ import React from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, Alert, FlatList,
 } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { Feather, Entypo } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import {
   shape, string, instanceOf, arrayOf,
@@ -44,32 +44,37 @@ export default function MemoList(props) {
         style={styles.memoListItem}
         onPress={() => { navigation.navigate('MemoDetail', { id: item.id }); }}
       >
-        <View>
-          <Text style={styles.memoListItemTitle} numberOfLines={1}>{item.bodyText}</Text>
-          <Text style={styles.memoListItemDate}>{dateToString(item.updatedAt)}</Text>
+        <View style={styles.memoLeft}>
+          <View>
+            {
+              true
+                ? (
+                  <TouchableOpacity>
+                    <Entypo name="star" size={24} color="black" />
+                  </TouchableOpacity>
+                )
+                : (
+                  <TouchableOpacity>
+                    <Entypo name="star-outlined" size={24} color="black" />
+                  </TouchableOpacity>
+                )
+            }
+          </View>
+          <View>
+            <Text style={styles.memoListItemTitle} numberOfLines={1}>{item.bodyText}</Text>
+            <Text style={styles.memoListItemDate}>{dateToString(item.updatedAt)}</Text>
+          </View>
         </View>
-        <View style={styles.memoRight}>
-          <TouchableOpacity
-            style={styles.memoDelete}
-            onPress={() => { }}
-          >
-            <Feather
-              name="star"
-              size={16}
-              color="#B0B0B0"
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.memoDelete}
-            onPress={() => { deleteMemo(item.id); }}
-          >
-            <Feather
-              name="x"
-              size={16}
-              color="#B0B0B0"
-            />
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={styles.memoDelete}
+          onPress={() => { deleteMemo(item.id); }}
+        >
+          <Feather
+            name="x"
+            size={16}
+            color="#B0B0B0"
+          />
+        </TouchableOpacity>
 
       </TouchableOpacity>
     );
@@ -102,7 +107,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingVertical: 16,
-    paddingHorizontal: 19,
     alignItems: 'center',
     borderBottomWidth: 1,
     borderColor: 'rgba(0, 0, 0, 0.15)',
@@ -116,10 +120,11 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     color: '#848484',
   },
-  memoRight: {
+  memoLeft: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
   memoDelete: {
-    padding: 8,
+    paddingRight: 27,
   },
 });
