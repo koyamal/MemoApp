@@ -8,10 +8,10 @@ import {
 } from 'react-native';
 import { shape, string } from 'prop-types';
 import firebase from 'firebase';
-import { Entypo } from '@expo/vector-icons';
 
 import CircleButton from '../components/CircleButton';
 import { dateToString, toggleStar } from '../utils';
+import Star from '../components/Star';
 
 export default function MemoDetailScreen(props) {
   const { navigation, route } = props;
@@ -42,11 +42,7 @@ export default function MemoDetailScreen(props) {
       <View style={styles.memoHeader}>
         <View>
           <TouchableOpacity style={styles.memoStar} onPress={() => { toggleStar(memo); }}>
-            {
-              memo && memo.isStar
-                ? (<Entypo name="star" size={32} color="#FFCC00" />)
-                : (<Entypo name="star" size={32} color="#ffffff" />)
-            }
+            <Star isStar={memo && memo.isStar} name={['star', 'star']} size={32} color={['#FFCC00', '#ffffff']} />
           </TouchableOpacity>
         </View>
         <View>
