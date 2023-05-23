@@ -5,6 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import { shape, string } from 'prop-types';
 import firebase from 'firebase';
@@ -37,12 +38,33 @@ export default function MemoDetailScreen(props) {
     }
     return unsubcribe;
   }, []);
+  function toggleStar(item) {
+    if (item) {
+      const { currentUser } = firebase.auth();
+      if (currentUser) {
+        const db = firebase.firestore();
+        const ref = db.collection(`users/${currentUser.uid}/memos`).doc(item.id);
+        ref.set({
+          isStar: !item.isStar,
+        }, { merge: true })
+          .then(() => {
+          })
+          .catch((error) => {
+            Alert.alert(error.code);
+          });
+      }
+    }
+  }
   return (
     <View style={styles.container}>
       <View style={styles.memoHeader}>
         <View>
-          <TouchableOpacity style={styles.memoStar}>
-            <Entypo name="star" size={32} color="#FFCC00" />
+          <TouchableOpacity style={styles.memoStar} onPress={() => { toggleStar(memo); }}>
+            {
+              memo && memo.isStar
+                ? (<Entypo name="star" size={32} color="#FFCC00" />)
+                : (<Entypo name="star" size={32} color="#ffffff" />)
+            }
           </TouchableOpacity>
         </View>
         <View>
