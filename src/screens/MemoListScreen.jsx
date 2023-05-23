@@ -38,6 +38,7 @@ export default function MemoListScreen(props) {
               id: doc.id,
               bodyText: data.bodyText,
               updatedAt: data.updatedAt.toDate(),
+              isStar: data.isStar,
             });
           });
           setMemos(userMemos);

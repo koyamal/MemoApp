@@ -51,7 +51,7 @@ export default function MemoList(props) {
         <View style={styles.memoLeft}>
           <View style={styles.memoStar}>
             {
-              isStar
+              item.isStar
                 ? (
                   <TouchableOpacity onPress={() => { toggleStar(); }}>
                     <Entypo name="star" size={24} color="#FFCC00" />

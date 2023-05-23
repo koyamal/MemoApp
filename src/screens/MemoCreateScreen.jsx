@@ -19,6 +19,7 @@ export default function MemoCreateScreen(props) {
       ref.add({
         bodyText,
         updatedAt: new Date(),
+        isStar: false,
       })
         .then((docRef) => {
           console.log('Created.', docRef.id);
