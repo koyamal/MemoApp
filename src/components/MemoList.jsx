@@ -48,16 +48,29 @@ export default function MemoList(props) {
           <Text style={styles.memoListItemTitle} numberOfLines={1}>{item.bodyText}</Text>
           <Text style={styles.memoListItemDate}>{dateToString(item.updatedAt)}</Text>
         </View>
-        <TouchableOpacity
-          style={styles.memoDelete}
-          onPress={() => { deleteMemo(item.id); }}
-        >
-          <Feather
-            name="x"
-            size={16}
-            color="#B0B0B0"
-          />
-        </TouchableOpacity>
+        <View style={styles.memoRight}>
+          <TouchableOpacity
+            style={styles.memoDelete}
+            onPress={() => { }}
+          >
+            <Feather
+              name="star"
+              size={16}
+              color="#B0B0B0"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.memoDelete}
+            onPress={() => { deleteMemo(item.id); }}
+          >
+            <Feather
+              name="x"
+              size={16}
+              color="#B0B0B0"
+            />
+          </TouchableOpacity>
+        </View>
+
       </TouchableOpacity>
     );
   }
@@ -102,6 +115,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 16,
     color: '#848484',
+  },
+  memoRight: {
+    flexDirection: 'row',
   },
   memoDelete: {
     padding: 8,
