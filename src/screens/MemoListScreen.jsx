@@ -15,6 +15,7 @@ export default function MemoListScreen(props) {
   const { navigation } = props;
   const [memos, setMemos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [onlyStar, setOnlyStar] = useState(false);
 
   useEffect(() => {
     navigation.setOptions({
@@ -80,12 +81,12 @@ export default function MemoListScreen(props) {
         name="plus"
         onPress={() => { navigation.navigate('MemoCreate'); }}
       />
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => { setOnlyStar(!onlyStar); }}>
         <Star
-          isStar
-          name={['star', 'star-outlined']}
+          isStar={onlyStar}
+          name={['star', 'star']}
           size={40}
-          color={['#FFCC00', '#B0B0B0']}
+          color={['#FFCC00', '#ffffff']}
           style={{
             position: 'absolute',
             left: 40,
