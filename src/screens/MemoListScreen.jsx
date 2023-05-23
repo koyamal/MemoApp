@@ -35,13 +35,25 @@ export default function MemoListScreen(props) {
           const userMemos = [];
           snapshot.forEach((doc) => {
             const data = doc.data();
-            console.log(doc.id, data);
-            userMemos.push({
-              id: doc.id,
-              bodyText: data.bodyText,
-              updatedAt: data.updatedAt.toDate(),
-              isStar: data.isStar,
-            });
+            if (onlyStar) {
+              if (data.isStar) {
+                console.log(doc.id, data);
+                userMemos.push({
+                  id: doc.id,
+                  bodyText: data.bodyText,
+                  updatedAt: data.updatedAt.toDate(),
+                  isStar: data.isStar,
+                });
+              }
+            } else {
+              console.log(doc.id, data);
+              userMemos.push({
+                id: doc.id,
+                bodyText: data.bodyText,
+                updatedAt: data.updatedAt.toDate(),
+                isStar: data.isStar,
+              });
+            }
           });
           setMemos(userMemos);
           setIsLoading(false);
@@ -54,7 +66,7 @@ export default function MemoListScreen(props) {
       );
     }
     return unsubscribe;
-  }, []);
+  }, [onlyStar]);
 
   if (memos.length === 0) {
     return (
