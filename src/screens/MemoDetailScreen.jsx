@@ -42,7 +42,12 @@ export default function MemoDetailScreen(props) {
       <View style={styles.memoHeader}>
         <View>
           <TouchableOpacity style={styles.memoStar} onPress={() => { toggleStar(memo); }}>
-            <Star isStar={memo && memo.isStar} name={['star', 'star']} size={32} color={['#FFCC00', '#ffffff']} />
+            <Star
+              isStar={memo && memo.isStar}
+              name={['star', 'star']}
+              size={32}
+              color={['#FFCC00', '#ffffff']}
+            />
           </TouchableOpacity>
         </View>
         <View>

@@ -48,7 +48,12 @@ export default function MemoList(props) {
         <View style={styles.memoLeft}>
           <View style={styles.memoStar}>
             <TouchableOpacity onPress={() => { toggleStar(item); }}>
-              <Star isStar={item.isStar} name={['star', 'star-outlined']} size={24} color={['#FFCC00', '#B0B0B0']} />
+              <Star
+                isStar={item.isStar}
+                name={['star', 'star-outlined']}
+                size={24}
+                color={['#FFCC00', '#B0B0B0']}
+              />
             </TouchableOpacity>
           </View>
           <View>
