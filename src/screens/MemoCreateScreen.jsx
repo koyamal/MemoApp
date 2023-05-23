@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, StyleSheet, TextInput,
+  View, StyleSheet, TextInput, Alert,
 } from 'react-native';
 import firebase from 'firebase';
 
@@ -15,17 +15,21 @@ export default function MemoCreateScreen(props) {
     const { currentUser } = firebase.auth();
     const db = firebase.firestore();
     const ref = db.collection(`users/${currentUser.uid}/memos`);
-    ref.add({
-      bodyText,
-      updatedAt: new Date(),
-    })
-      .then((docRef) => {
-        console.log('Created.', docRef.id);
-        navigation.goBack();
+    if (bodyText !== '') {
+      ref.add({
+        bodyText,
+        updatedAt: new Date(),
       })
-      .catch((error) => {
-        console.log('Error.', error);
-      });
+        .then((docRef) => {
+          console.log('Created.', docRef.id);
+          navigation.goBack();
+        })
+        .catch((error) => {
+          console.log('Error.', error);
+        });
+    } else {
+      Alert.alert('メモを入力してください');
+    }
   }
   return (
     <KeyboardSafeView style={styles.container}>
