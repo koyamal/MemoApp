@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  View, StyleSheet, Alert, Text,
+  View, StyleSheet, Alert, Text, TouchableOpacity,
 } from 'react-native';
 import firebase from 'firebase';
 
@@ -9,6 +9,7 @@ import CircleButton from '../components/CircleButton';
 import LogOutButton from '../components/LogOutButton';
 import Button from '../components/Button';
 import Loading from '../components/Loading';
+import Star from '../components/Star';
 
 export default function MemoListScreen(props) {
   const { navigation } = props;
@@ -79,6 +80,39 @@ export default function MemoListScreen(props) {
         name="plus"
         onPress={() => { navigation.navigate('MemoCreate'); }}
       />
+      <TouchableOpacity>
+        <Star
+          isStar
+          name={['star', 'star-outlined']}
+          size={40}
+          color={['#FFCC00', '#B0B0B0']}
+          style={{
+            position: 'absolute',
+            left: 40,
+            bottom: 40,
+            backgroundColor: '#467FD3',
+            width: 64,
+            height: 64,
+            borderRadius: 32,
+            justifyContent: 'center',
+            alignItems: 'center',
+            shadowColor: '#000000',
+            shadowOffset: { width: 0, height: 8 },
+            shadowOpacity: 0.25,
+            shadowRadius: 8,
+            elevation: 8,
+          }}
+        />
+      </TouchableOpacity>
+      {/* <CircleButton
+        style={{
+          position: 'absolute',
+          left: 40,
+          bottom: 40,
+        }}
+        name="plus"
+        onPress={() => { navigation.navigate('MemoCreate'); }}
+      /> */}
     </View>
   );
 }
