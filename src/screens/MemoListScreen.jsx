@@ -68,7 +68,11 @@ export default function MemoListScreen(props) {
     return unsubscribe;
   }, [onlyStar]);
 
-  if (memos.length === 0) {
+  if (memos.length === 0 && onlyStar) {
+    setOnlyStar(false);
+  }
+
+  if (memos.length === 0 && !onlyStar) {
     return (
       <View style={emptyStyles.container}>
         <Loading isLoading={isLoading} />
