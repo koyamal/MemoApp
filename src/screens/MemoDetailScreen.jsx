@@ -5,14 +5,13 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
 import { shape, string } from 'prop-types';
 import firebase from 'firebase';
 import { Entypo } from '@expo/vector-icons';
 
 import CircleButton from '../components/CircleButton';
-import { dateToString } from '../utils';
+import { dateToString, toggleStar } from '../utils';
 
 export default function MemoDetailScreen(props) {
   const { navigation, route } = props;
@@ -38,23 +37,6 @@ export default function MemoDetailScreen(props) {
     }
     return unsubcribe;
   }, []);
-  function toggleStar(item) {
-    if (item) {
-      const { currentUser } = firebase.auth();
-      if (currentUser) {
-        const db = firebase.firestore();
-        const ref = db.collection(`users/${currentUser.uid}/memos`).doc(item.id);
-        ref.set({
-          isStar: !item.isStar,
-        }, { merge: true })
-          .then(() => {
-          })
-          .catch((error) => {
-            Alert.alert(error.code);
-          });
-      }
-    }
-  }
   return (
     <View style={styles.container}>
       <View style={styles.memoHeader}>
