@@ -125,15 +125,6 @@ export default function MemoListScreen(props) {
           color={['#FFCC00', '#ffffff']}
         />
       </TouchableOpacity>
-      {/* <CircleButton
-        style={{
-          position: 'absolute',
-          left: 40,
-          bottom: 40,
-        }}
-        name="plus"
-        onPress={() => { navigation.navigate('MemoCreate'); }}
-      /> */}
     </View>
   );
 }
