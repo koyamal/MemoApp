@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {
-  View, StyleSheet, Alert, Text, TouchableOpacity,
+  View, StyleSheet, Alert, TouchableOpacity,
 } from 'react-native';
 import firebase from 'firebase';
 
 import MemoList from '../components/MemoList';
 import CircleButton from '../components/CircleButton';
 import LogOutButton from '../components/LogOutButton';
-import Loading from '../components/Loading';
 import Star from '../components/Star';
 import Empty from '../components/Empty';
 import StarEmpty from '../components/StarEmpty';
@@ -72,25 +71,6 @@ export default function MemoListScreen(props) {
   if (memos.length === 0 && onlyStar) {
     return (
       <StarEmpty isLoading={isLoading} setOnlyStar={setOnlyStar} onlyStar={onlyStar} />
-      // <View style={starEmptyStyles.container}>
-      //   <Loading isLoading={isLoading} />
-      //   <View style={starEmptyStyles.inner}>
-      //     <Text style={starEmptyStyles.title}>
-      //       お気に入りのメモは0件です
-      //     </Text>
-      //     <Text style={starEmptyStyles.title}>
-      //       お気に入りフィルタを解除してください
-      //     </Text>
-      //   </View>
-      //   <TouchableOpacity style={starStyles.button} onPress={() => { setOnlyStar(!onlyStar); }}>
-      //     <Star
-      //       isStar={onlyStar}
-      //       name={['star', 'star']}
-      //       size={40}
-      //       color={['#FFCC00', '#ffffff']}
-      //     />
-      //   </TouchableOpacity>
-      // </View>
     );
   }
 
@@ -142,25 +122,5 @@ const starStyles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 8,
     elevation: 8,
-  },
-});
-
-const starEmptyStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  inner: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'yello',
-  },
-  title: {
-    fontSize: 18,
-    marginBottom: 12,
-  },
-  button: {
-    alignSelf: 'center',
   },
 });
