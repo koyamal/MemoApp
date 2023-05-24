@@ -10,6 +10,7 @@ import LogOutButton from '../components/LogOutButton';
 import Loading from '../components/Loading';
 import Star from '../components/Star';
 import Empty from '../components/Empty';
+import StarEmpty from '../components/StarEmpty';
 
 export default function MemoListScreen(props) {
   const { navigation } = props;
@@ -70,25 +71,26 @@ export default function MemoListScreen(props) {
 
   if (memos.length === 0 && onlyStar) {
     return (
-      <View style={starEmptyStyles.container}>
-        <Loading isLoading={isLoading} />
-        <View style={starEmptyStyles.inner}>
-          <Text style={starEmptyStyles.title}>
-            お気に入りのメモは0件です
-          </Text>
-          <Text style={starEmptyStyles.title}>
-            お気に入りフィルタを解除してください
-          </Text>
-        </View>
-        <TouchableOpacity style={starStyles.button} onPress={() => { setOnlyStar(!onlyStar); }}>
-          <Star
-            isStar={onlyStar}
-            name={['star', 'star']}
-            size={40}
-            color={['#FFCC00', '#ffffff']}
-          />
-        </TouchableOpacity>
-      </View>
+      <StarEmpty isLoading={isLoading} setOnlyStar={setOnlyStar} onlyStar={onlyStar} />
+      // <View style={starEmptyStyles.container}>
+      //   <Loading isLoading={isLoading} />
+      //   <View style={starEmptyStyles.inner}>
+      //     <Text style={starEmptyStyles.title}>
+      //       お気に入りのメモは0件です
+      //     </Text>
+      //     <Text style={starEmptyStyles.title}>
+      //       お気に入りフィルタを解除してください
+      //     </Text>
+      //   </View>
+      //   <TouchableOpacity style={starStyles.button} onPress={() => { setOnlyStar(!onlyStar); }}>
+      //     <Star
+      //       isStar={onlyStar}
+      //       name={['star', 'star']}
+      //       size={40}
+      //       color={['#FFCC00', '#ffffff']}
+      //     />
+      //   </TouchableOpacity>
+      // </View>
     );
   }
 
