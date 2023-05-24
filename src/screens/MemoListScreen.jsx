@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import {
-  View, StyleSheet, Alert, TouchableOpacity,
+  View, StyleSheet, Alert,
 } from 'react-native';
 import firebase from 'firebase';
 
 import MemoList from '../components/MemoList';
 import CircleButton from '../components/CircleButton';
 import LogOutButton from '../components/LogOutButton';
-import Star from '../components/Star';
 import Empty from '../components/Empty';
 import StarEmpty from '../components/StarEmpty';
+import CircleStarButton from '../components/CircleStarButton';
 
 export default function MemoListScreen(props) {
   const { navigation } = props;
@@ -87,14 +87,7 @@ export default function MemoListScreen(props) {
         name="plus"
         onPress={() => { navigation.navigate('MemoCreate'); }}
       />
-      <TouchableOpacity style={starStyles.button} onPress={() => { setOnlyStar(!onlyStar); }}>
-        <Star
-          isStar={onlyStar}
-          name={['star', 'star']}
-          size={40}
-          color={['#FFCC00', '#ffffff']}
-        />
-      </TouchableOpacity>
+      <CircleStarButton setOnlyStar={setOnlyStar} onlyStar={onlyStar} />
     </View>
   );
 }
@@ -103,24 +96,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f0f4f8',
-  },
-});
-
-const starStyles = StyleSheet.create({
-  button: {
-    position: 'absolute',
-    left: 40,
-    bottom: 40,
-    backgroundColor: '#467FD3',
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000000',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    elevation: 8,
   },
 });
