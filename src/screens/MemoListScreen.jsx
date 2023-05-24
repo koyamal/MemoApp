@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   View, StyleSheet, Alert,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import firebase from 'firebase';
 
 import MemoList from '../components/MemoList';
@@ -12,8 +13,9 @@ import StarEmpty from '../components/StarEmpty';
 import CircleStarButton from '../components/CircleStarButton';
 import StarProvider from '../components/provider/StarProvider';
 
-export default function MemoListScreen(props) {
-  const { navigation } = props;
+export default function MemoListScreen() {
+  const navigation = useNavigation();
+  // const { navigation } = props;
   const [memos, setMemos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [onlyStar, setOnlyStar] = useState(false);
