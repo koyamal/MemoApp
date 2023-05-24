@@ -124,25 +124,6 @@ const styles = StyleSheet.create({
   },
 });
 
-const emptyStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  inner: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 18,
-    marginBottom: 24,
-  },
-  button: {
-    alignSelf: 'center',
-  },
-});
-
 const starStyles = StyleSheet.create({
   button: {
     position: 'absolute',
