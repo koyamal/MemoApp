@@ -10,6 +10,7 @@ import LogOutButton from '../components/LogOutButton';
 import Empty from '../components/Empty';
 import StarEmpty from '../components/StarEmpty';
 import CircleStarButton from '../components/CircleStarButton';
+import StarProvider from '../components/provider/StarProvider';
 
 export default function MemoListScreen(props) {
   const { navigation } = props;
@@ -81,14 +82,16 @@ export default function MemoListScreen(props) {
   }
 
   return (
-    <View style={styles.container}>
-      <MemoList memos={memos} />
-      <CircleButton
-        name="plus"
-        onPress={() => { navigation.navigate('MemoCreate'); }}
-      />
-      <CircleStarButton setOnlyStar={setOnlyStar} onlyStar={onlyStar} />
-    </View>
+    <StarProvider>
+      <View style={styles.container}>
+        <MemoList memos={memos} />
+        <CircleButton
+          name="plus"
+          onPress={() => { navigation.navigate('MemoCreate'); }}
+        />
+        <CircleStarButton setOnlyStar={setOnlyStar} onlyStar={onlyStar} />
+      </View>
+    </StarProvider>
   );
 }
 
