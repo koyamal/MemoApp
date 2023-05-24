@@ -10,6 +10,7 @@ import LogOutButton from '../components/LogOutButton';
 import Button from '../components/Button';
 import Loading from '../components/Loading';
 import Star from '../components/Star';
+import Empty from '../components/Empty';
 
 export default function MemoListScreen(props) {
   const { navigation } = props;
@@ -94,19 +95,20 @@ export default function MemoListScreen(props) {
 
   if (memos.length === 0 && !onlyStar) {
     return (
-      <View style={emptyStyles.container}>
-        <Loading isLoading={isLoading} />
-        <View style={emptyStyles.inner}>
-          <Text style={emptyStyles.title}>
-            メモを作成しよう!
-          </Text>
-          <Button
-            label="作成する"
-            onPress={() => { navigation.navigate('MemoCreate'); }}
-            style={emptyStyles.button}
-          />
-        </View>
-      </View>
+      <Empty isLoading={isLoading} />
+      // <View style={emptyStyles.container}>
+      //   <Loading isLoading={isLoading} />
+      //   <View style={emptyStyles.inner}>
+      //     <Text style={emptyStyles.title}>
+      //       メモを作成しよう!
+      //     </Text>
+      //     <Button
+      //       label="作成する"
+      //       onPress={() => { navigation.navigate('MemoCreate'); }}
+      //       style={emptyStyles.button}
+      //     />
+      //   </View>
+      // </View>
     );
   }
 
