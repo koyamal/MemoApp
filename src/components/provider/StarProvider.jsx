@@ -1,13 +1,14 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 import { shape } from 'prop-types';
 
 export const StarContext = createContext({});
 
 export default function StarProvider(props) {
   const { children } = props;
-  const contextName = 'Test context';
+  const [onlyStar, setOnlyStar] = useState(false);
   return (
-    <StarContext.Provider value={{ contextName }}>
+    // eslint-disable-next-line
+    <StarContext.Provider value={{ onlyStar, setOnlyStar }}>
       {children}
     </StarContext.Provider>
   );

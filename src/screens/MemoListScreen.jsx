@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {
   View, StyleSheet, Alert,
 } from 'react-native';
@@ -11,14 +11,13 @@ import LogOutButton from '../components/LogOutButton';
 import Empty from '../components/Empty';
 import StarEmpty from '../components/StarEmpty';
 import CircleStarButton from '../components/CircleStarButton';
-import StarProvider from '../components/provider/StarProvider';
+import { StarContext } from '../components/provider/StarProvider';
 
 export default function MemoListScreen() {
   const navigation = useNavigation();
-  // const { navigation } = props;
   const [memos, setMemos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [onlyStar, setOnlyStar] = useState(false);
+  const { onlyStar } = useContext(StarContext);
 
   useEffect(() => {
     navigation.setOptions({
@@ -73,7 +72,7 @@ export default function MemoListScreen() {
 
   if (memos.length === 0 && onlyStar) {
     return (
-      <StarEmpty isLoading={isLoading} setOnlyStar={setOnlyStar} onlyStar={onlyStar} />
+      <StarEmpty isLoading={isLoading} />
     );
   }
 
@@ -84,16 +83,14 @@ export default function MemoListScreen() {
   }
 
   return (
-    <StarProvider>
-      <View style={styles.container}>
-        <MemoList memos={memos} />
-        <CircleButton
-          name="plus"
-          onPress={() => { navigation.navigate('MemoCreate'); }}
-        />
-        <CircleStarButton setOnlyStar={setOnlyStar} onlyStar={onlyStar} />
-      </View>
-    </StarProvider>
+    <View style={styles.container}>
+      <MemoList memos={memos} />
+      <CircleButton
+        name="plus"
+        onPress={() => { navigation.navigate('MemoCreate'); }}
+      />
+      <CircleStarButton />
+    </View>
   );
 }
 

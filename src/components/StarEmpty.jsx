@@ -2,13 +2,13 @@ import React from 'react';
 import {
   View, StyleSheet, Text,
 } from 'react-native';
-import { bool, func } from 'prop-types';
+import { bool } from 'prop-types';
 
 import Loading from './Loading';
 import CircleStarButton from './CircleStarButton';
 
 export default function StarEmpty(props) {
-  const { isLoading, setOnlyStar, onlyStar } = props;
+  const { isLoading } = props;
   return (
     <View style={starEmptyStyles.container}>
       <Loading isLoading={isLoading} />
@@ -20,15 +20,13 @@ export default function StarEmpty(props) {
           お気に入りフィルタを解除してください
         </Text>
       </View>
-      <CircleStarButton setOnlyStar={setOnlyStar} onlyStar={onlyStar} />
+      <CircleStarButton />
     </View>
   );
 }
 
 StarEmpty.propTypes = {
   isLoading: bool.isRequired,
-  setOnlyStar: func.isRequired,
-  onlyStar: bool.isRequired,
 };
 
 const starEmptyStyles = StyleSheet.create({

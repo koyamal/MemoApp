@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
-import { bool, func } from 'prop-types';
 
 import Star from './Star';
 import { StarContext } from './provider/StarProvider';
 
-export default function CircleStarButton(props) {
-  const { setOnlyStar, onlyStar } = props;
-  const context = useContext(StarContext);
-  console.log(context);
+export default function CircleStarButton() {
+  const { setOnlyStar, onlyStar } = useContext(StarContext);
+
   return (
     <TouchableOpacity style={starStyles.button} onPress={() => { setOnlyStar(!onlyStar); }}>
       <Star
@@ -20,11 +18,6 @@ export default function CircleStarButton(props) {
     </TouchableOpacity>
   );
 }
-
-CircleStarButton.propTypes = {
-  setOnlyStar: func.isRequired,
-  onlyStar: bool.isRequired,
-};
 
 const starStyles = StyleSheet.create({
   button: {
