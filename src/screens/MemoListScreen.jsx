@@ -134,13 +134,12 @@ export default function MemoListScreen(props) {
         name="plus"
         onPress={() => { navigation.navigate('MemoCreate'); }}
       />
-      <TouchableOpacity onPress={() => { setOnlyStar(!onlyStar); }}>
+      <TouchableOpacity style={starStyles.button} onPress={() => { setOnlyStar(!onlyStar); }}>
         <Star
           isStar={onlyStar}
           name={['star', 'star']}
           size={40}
           color={['#FFCC00', '#ffffff']}
-          style={starStyle}
         />
       </TouchableOpacity>
       {/* <CircleButton
