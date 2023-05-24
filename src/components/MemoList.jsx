@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, Alert, FlatList,
 } from 'react-native';
@@ -12,7 +12,7 @@ import firebase from 'firebase';
 import { dateToString, toggleStar } from '../utils';
 import Star from './Star';
 
-export default function MemoList(props) {
+function MemoList(props) {
   const { memos } = props;
   const navigation = useNavigation();
 
@@ -127,3 +127,5 @@ const styles = StyleSheet.create({
     padding: 8,
   },
 });
+
+export default memo(MemoList);
