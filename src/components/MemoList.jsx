@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import {
-  View, Text, StyleSheet, TouchableOpacity, Alert, FlatList, SectionList,
+  View, Text, StyleSheet, TouchableOpacity, Alert, SectionList,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -77,11 +77,6 @@ function MemoList(props) {
   }
   return (
     <View style={styles.container}>
-      {/* <FlatList
-        data={memos}
-        renderItem={({ item }) => renderItem(item)}
-        keyExtractor={(item) => item.id}
-      /> */}
       <SectionList
         sections={[
           {
