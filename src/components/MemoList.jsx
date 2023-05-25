@@ -80,8 +80,8 @@ function MemoList(props) {
       return null;
     }
     return (
-      <View>
-        <Text>{section.title}</Text>
+      <View style={styles.sectionContainer}>
+        <Text style={styles.sectionTitle}>{section.title}</Text>
       </View>
     );
   }
@@ -145,6 +145,15 @@ const styles = StyleSheet.create({
   },
   memoStar: {
     padding: 8,
+  },
+  sectionContainer: {
+    // backgroundColor: '#afeeee',
+  },
+  sectionTitle: {
+    fontSize: 24,
+    padding: 8,
+    lineHeight: 32,
+    color: '#696969',
   },
 });
 
