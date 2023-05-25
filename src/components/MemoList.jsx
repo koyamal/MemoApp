@@ -92,15 +92,27 @@ function MemoList(props) {
       <Text style={{ height: 200 }}>{item}</Text>
     );
   }
+  const FlatListRender = memo(() => {
+    return (
+    <FlatList
+      data={['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'x', 'y', 'z']}
+      renderItem={({ item }) => renderTest(item)}
+      keyExtractor={(item) => item}
+      removeClippedSubviews
+      initialNumToRender={6}
+    />
+    );
+  }, []);
   return (
     <View style={styles.container}>
-      <FlatList
+      {/* <FlatList
         data={['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'x', 'y', 'z']}
         renderItem={({ item }) => renderTest(item)}
         keyExtractor={(item) => item}
         removeClippedSubviews
         initialNumToRender={3}
-      />
+      /> */}
+      <FlatListRender />
       {/* <SectionList
         sections={[
           {
