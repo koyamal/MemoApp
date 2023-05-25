@@ -75,6 +75,16 @@ function MemoList(props) {
       </TouchableOpacity>
     );
   }
+  function renderHeader(section) {
+    if (section.data.length === 0) {
+      return null;
+    }
+    return (
+      <View>
+        <Text>{section.title}</Text>
+      </View>
+    );
+  }
   return (
     <View style={styles.container}>
       <SectionList
@@ -89,9 +99,7 @@ function MemoList(props) {
           },
         ]}
         renderItem={({ item }) => renderItem(item)}
-        renderSectionHeader={({ section }) => (
-          <Text>{section.title}</Text>
-        )}
+        renderSectionHeader={({ section }) => renderHeader(section)}
         keyExtractor={(item) => item.id}
       />
     </View>
