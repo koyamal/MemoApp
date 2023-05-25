@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   View, StyleSheet, Text,
 } from 'react-native';
-import { bool } from 'prop-types';
+// import { bool } from 'prop-types';
 
 import Loading from './Loading';
 import CircleStarButton from './CircleStarButton';
+import { StarContext } from './provider/StarProvider';
 
-export default function StarEmpty(props) {
-  const { isLoading } = props;
+export default function StarEmpty(/* props */) {
+  const { isLoading } = useContext(StarContext);
+  // const { isLoading } = props;
   return (
     <View style={starEmptyStyles.container}>
       <Loading isLoading={isLoading} />
@@ -25,9 +27,9 @@ export default function StarEmpty(props) {
   );
 }
 
-StarEmpty.propTypes = {
-  isLoading: bool.isRequired,
-};
+// StarEmpty.propTypes = {
+//   isLoading: bool.isRequired,
+// };
 
 const starEmptyStyles = StyleSheet.create({
   container: {

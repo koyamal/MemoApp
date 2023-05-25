@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   View, StyleSheet, Text,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { bool } from 'prop-types';
+// import { bool } from 'prop-types';
 
 import Button from './Button';
 import Loading from './Loading';
+import { StarContext } from './provider/StarProvider';
 
-export default function Empty(props) {
-  const { isLoading } = props;
+export default function Empty(/* props */) {
+  const { isLoading } = useContext(StarContext);
+  // const { isLoading } = props;
   const navigation = useNavigation();
   return (
     <View style={emptyStyles.container}>
@@ -28,9 +30,9 @@ export default function Empty(props) {
   );
 }
 
-Empty.propTypes = {
-  isLoading: bool.isRequired,
-};
+// Empty.propTypes = {
+//   isLoading: bool.isRequired,
+// };
 
 const emptyStyles = StyleSheet.create({
   container: {

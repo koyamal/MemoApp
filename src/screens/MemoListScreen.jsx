@@ -16,8 +16,8 @@ import { StarContext } from '../components/provider/StarProvider';
 export default function MemoListScreen() {
   const navigation = useNavigation();
   const [memos, setMemos] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const { onlyStar } = useContext(StarContext);
+  // const [isLoading] = useState(false);
+  const { onlyStar, setIsLoading } = useContext(StarContext);
 
   useEffect(() => {
     navigation.setOptions({
@@ -72,13 +72,13 @@ export default function MemoListScreen() {
 
   if (memos.length === 0 && onlyStar) {
     return (
-      <StarEmpty isLoading={isLoading} />
+      <StarEmpty /* isLoading={isLoading} */ />
     );
   }
 
   if (memos.length === 0 && !onlyStar) {
     return (
-      <Empty isLoading={isLoading} />
+      <Empty /* isLoading={isLoading} */ />
     );
   }
 
