@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import {
-  View, Text, StyleSheet, TouchableOpacity, Alert, SectionList, FlatList,
+  View, Text, StyleSheet, TouchableOpacity, Alert, SectionList,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -86,34 +86,9 @@ function MemoList(props) {
       </View>
     );
   }
-  function renderTest(item) {
-    console.log(item);
-    return (
-      <Text style={{ height: 200 }}>{item}</Text>
-    );
-  }
-  const FlatListRender = memo(() => {
-    return (
-    <FlatList
-      data={['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'x', 'y', 'z']}
-      renderItem={({ item }) => renderTest(item)}
-      keyExtractor={(item) => item}
-      removeClippedSubviews
-      initialNumToRender={6}
-    />
-    );
-  }, []);
   return (
-    <View style={styles.container}>
-      {/* <FlatList
-        data={['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'x', 'y', 'z']}
-        renderItem={({ item }) => renderTest(item)}
-        keyExtractor={(item) => item}
-        removeClippedSubviews
-        initialNumToRender={3}
-      /> */}
-      <FlatListRender />
-      {/* <SectionList
+    <View>
+      <SectionList
         sections={[
           {
             title: 'Star',
@@ -127,7 +102,7 @@ function MemoList(props) {
         renderItem={({ item }) => renderItem(item)}
         renderSectionHeader={({ section }) => renderHeader(section)}
         keyExtractor={(item) => item.id}
-      /> */}
+      />
     </View>
   );
 }
