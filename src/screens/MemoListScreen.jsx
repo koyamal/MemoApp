@@ -71,15 +71,11 @@ export default function MemoListScreen() {
   }, [onlyStar]);
 
   if (memos.length === 0 && onlyStar) {
-    return (
-      <StarEmpty />
-    );
+    return (<StarEmpty />);
   }
 
   if (memos.length === 0 && !onlyStar) {
-    return (
-      <Empty />
-    );
+    return (<Empty />);
   }
 
   return (
