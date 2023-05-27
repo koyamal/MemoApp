@@ -39,7 +39,6 @@ export default function MemoListScreen() {
             const data = doc.data();
             if (onlyStar) {
               if (data.isStar) {
-                // console.log(doc.id, data);
                 userMemos.push({
                   id: doc.id,
                   bodyText: data.bodyText,
@@ -48,7 +47,6 @@ export default function MemoListScreen() {
                 });
               }
             } else {
-              // console.log(doc.id, data);
               userMemos.push({
                 id: doc.id,
                 bodyText: data.bodyText,
