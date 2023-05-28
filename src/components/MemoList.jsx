@@ -40,7 +40,6 @@ function MemoList(props) {
     }
   }
   function renderItem(item) {
-    console.log('renderItem rendered', item.bodyText);
     return (
       <TouchableOpacity
         style={styles.memoListItem}
