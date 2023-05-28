@@ -42,9 +42,7 @@ export default function SignUpScreen(props) {
         <TextInput
           style={styles.input}
           value={password}
-          onChangeText={(text) => {
-            setPassword(text);
-          }}
+          onChangeText={(text) => { setPassword(text); }}
           autoCapitalize="none"
           secureTextEntry
           placeholder="Password"
