@@ -14,7 +14,6 @@ export default function MemoEditScreen(props) {
   const { id, bodyText } = route.params;
   const [body, setBody] = useState(bodyText);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(id, bodyText);
 
   function handlePress() {
     setIsLoading(true);
