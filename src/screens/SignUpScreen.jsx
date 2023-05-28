@@ -21,7 +21,6 @@ export default function SignUpScreen(props) {
       })
       .catch((error) => {
         Alert.alert(error.code);
-        console.log(error.code, error.message);
       });
   }
   return (
