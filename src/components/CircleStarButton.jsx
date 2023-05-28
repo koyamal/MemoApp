@@ -5,7 +5,6 @@ import Star from './Star';
 import { StarContext } from './provider/StarProvider';
 
 export default function CircleStarButton() {
-  console.log('CircleStarButton');
   const { setOnlyStar, onlyStar } = useContext(StarContext);
 
   return (
