@@ -24,9 +24,7 @@ export default function MemoCreateScreen(props) {
         .then(() => {
           navigation.goBack();
         })
-        .catch((error) => {
-          console.log('Error.', error);
-        });
+        .catch(() => {});
     } else {
       Alert.alert('メモを入力してください');
     }
