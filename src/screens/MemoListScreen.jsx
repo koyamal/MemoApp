@@ -19,7 +19,6 @@ export default function MemoListScreen() {
   const { onlyStar, setIsLoading } = useContext(StarContext);
 
   useEffect(() => {
-    console.log('MemoListScreen');
     navigation.setOptions({
       headerRight: () => <LogOutButton />,
     });
