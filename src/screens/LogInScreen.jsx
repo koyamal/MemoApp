@@ -37,7 +37,6 @@ export default function LogInScreen(props) {
         });
       })
       .catch((error) => {
-        console.log(error.code, error.message);
         Alert.alert(error.code);
       })
       .then(() => {
