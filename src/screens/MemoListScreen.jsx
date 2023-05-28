@@ -57,9 +57,8 @@ export default function MemoListScreen() {
           setMemos(userMemos);
           setIsLoading(false);
         },
-        (error) => {
+        () => {
           setIsLoading(false);
-          console.log(error);
           Alert.alert('Load Data failed.');
         },
       );
