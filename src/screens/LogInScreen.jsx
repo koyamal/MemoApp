@@ -37,6 +37,7 @@ export default function LogInScreen(props) {
         });
       })
       .catch((error) => {
+        Alert.alert("Hello, MyMemo");
         Alert.alert(error.code);
       })
       .then(() => {
