@@ -47,6 +47,7 @@ export default function LogInScreen(props) {
   return (
     <View style={styles.container}>
       <Loading isLoading={isLoading} />
+      <Loading isLoading={isLoading} />
       <View style={styles.inner}>
         <Text>This is Mmoe App</Text>
         <Text style={styles.title}>Log In...Screen</Text>
