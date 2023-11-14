@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import firebase from 'firebase';
@@ -20,6 +20,7 @@ if (firebase.apps.length === 0) {
 const Stack = createStackNavigator();
 
 export default function App() {
+  useEffect();
   return (
     <NavigationContainer>
       <Stack.Navigator
