@@ -10,6 +10,7 @@ import MemoListWrapScreen from './src/screens/MemoListWrapScreen';
 import LogInScreen from './src/screens/LogInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import { firebaseConfig } from './env';
+import {waitSeconds} from './src/utils';
 
 require('firebase/firestore');
 
@@ -21,8 +22,21 @@ const Stack = createStackNavigator();
 
 export default function App() {
   useEffect(() => {
-    console.log("hello");
-  });
+    console.log("useEffect Start");
+    const a = async () => {
+      console.log("A start");
+      const resA = await waitSeconds(1000, 'a', 'resA');
+      console.log(resA);
+    };
+
+    (async () => {
+      console.log("B start");
+      const resB = await waitSeconds(1000, 'b', 'resB');
+      console.log(resB);
+      a();
+    })();
+    // a();
+  }, []);
   return (
     <NavigationContainer>
       <Stack.Navigator
