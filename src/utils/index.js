@@ -2,6 +2,15 @@ import { format } from 'date-fns';
 import firebase from 'firebase';
 import { Alert } from 'react-native';
 
+export async function waitSeconds(waitTime) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("hello");
+      resolve();
+    }, waitTime);
+  })
+}
+
 export function dateToString(date) {
   if (!date) {
     return '';
