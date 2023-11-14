@@ -2,13 +2,13 @@ import { format } from 'date-fns';
 import firebase from 'firebase';
 import { Alert } from 'react-native';
 
-export async function waitSeconds(waitTime) {
+export async function waitSeconds(waitTime, logMsg, rsvMsg) {
   return new Promise((resolve) => {
     setTimeout(() => {
-      console.log("hello");
-      resolve();
+      console.log(logMsg);
+      resolve(rsvMsg);
     }, waitTime);
-  })
+  });
 }
 
 export function dateToString(date) {
