@@ -20,7 +20,9 @@ if (firebase.apps.length === 0) {
 const Stack = createStackNavigator();
 
 export default function App() {
-  useEffect();
+  useEffect(() => {
+    console.log("hello");
+  });
   return (
     <NavigationContainer>
       <Stack.Navigator
