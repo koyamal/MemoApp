@@ -22,12 +22,20 @@ const Stack = createStackNavigator();
 
 export default function App() {
   useEffect(() => {
-    console.log("hello");
+    console.log("useEffect Start");
     const a = async () => {
-      const b = await waitSeconds(1000, 'a', 'b');
-      console.log(b);
+      console.log("A start");
+      const resA = await waitSeconds(1000, 'a', 'resA');
+      console.log(resA);
     };
-    a();
+
+    (async () => {
+      console.log("B start");
+      const resB = await waitSeconds(1000, 'b', 'resB');
+      console.log(resB);
+      a();
+    })();
+    // a();
   }, []);
   return (
     <NavigationContainer>
