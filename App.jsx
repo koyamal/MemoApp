@@ -28,6 +28,7 @@ export default function App() {
       const resA = await waitSeconds(1000, 'reqA', 'resA');
       console.log(resA);
     };
+    a();
 
     (async () => {
       console.log("B start");
@@ -35,7 +36,7 @@ export default function App() {
       console.log(resB);
       // a();
     })();
-    a();
+    // a();
   }, []);
   return (
     <NavigationContainer>
