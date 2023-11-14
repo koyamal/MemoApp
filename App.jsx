@@ -25,17 +25,17 @@ export default function App() {
     console.log("useEffect Start");
     const a = async () => {
       console.log("A start");
-      const resA = await waitSeconds(1000, 'a', 'resA');
+      const resA = await waitSeconds(1000, 'reqA', 'resA');
       console.log(resA);
     };
 
     (async () => {
       console.log("B start");
-      const resB = await waitSeconds(1000, 'b', 'resB');
+      const resB = await waitSeconds(1000, 'reqB', 'resB');
       console.log(resB);
-      a();
+      // a();
     })();
-    // a();
+    a();
   }, []);
   return (
     <NavigationContainer>
