@@ -34,9 +34,7 @@ export default function App() {
       console.log("B start");
       const resB = await waitSeconds(1000, 'reqB', 'resB');
       console.log(resB);
-      // a();
     })();
-    // a();
   }, []);
   return (
     <NavigationContainer>
