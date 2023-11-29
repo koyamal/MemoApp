@@ -26,7 +26,7 @@ export default function MemoCreateScreen(props) {
         })
         .catch(() => {});
     } else {
-      Alert.alert('メモを入力してください');
+      Alert.alert('メモを入力してください。');
     }
   }
   return (
@@ -53,8 +53,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   inputContainer: {
-    paddingVertical: 32,
-    paddingHorizontal: 27,
+    paddingVertical: 33,
+    paddingHorizontal: 26,
     flex: 1,
   },
   input: {
